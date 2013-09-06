@@ -1,0 +1,21 @@
+From an email from Josh Blum:
+
+VITA49 has quite a lot going on, and formats for all kinds of intricate
+packets for specific things like GPS data.
+
+So, for USRPs, we use a subset of VITA49. Basically VITA IF stream
+packets with stream ID fields, and time stamp fields, sometimes
+trailers. Also extension context packets.
+
+This is the parser for UHD (GPL):
+https://github.com/EttusResearch/uhd/blob/master/host/include/uhd/transport/vrt_if_packet.hpp
+It supports VITA IF with and without VRL encapsulation.
+
+Eric blossom wrote a VITA parser at one point as well. I dont know where
+its hosted now, but it was once in the gnuradio repo:
+http://gnuradio.org/redmine/projects/gnuradio/repository/revisions/096dbe5c4bbab53e05d23fd632eeb2013fdfb660/show/gr-vrt
+
+Here are also some blocks also with their own parser that use VRL and
+VITA49 (GPL):
+https://github.com/guruofquality/grex/wiki/Blocks#wiki-de-serialization-io-blocks
+
